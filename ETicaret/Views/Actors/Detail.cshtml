@@ -1,0 +1,64 @@
+﻿@model Actor
+@{
+    ViewData["Title"] = "Detail of " + Model.FullName;
+}
+
+<div class="row text">
+    <div class="col-md-8 offset-2">
+
+        <p>
+            <h1>Detail of an @Model.FullName</h1>
+        </p>
+
+        <div class="row">
+            <div class="col-md-8 offset-2">
+                
+                    
+
+                    <div class="text-center form-group">
+                        <img id="ProfilePictureUrlPreview" class="rounded-circle" style="width:250px;height:250px; border: 5px solid green;" />
+
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="ProfilePictureUrl" class="control-label"></label>
+                        <input asp-for="ProfilePictureUrl" class="form-control" readonly/>
+                        
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="FullName" class="control-label"></label>
+                    <input asp-for="FullName" class="form-control" readonly />
+                        
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="Bio" class="control-label"></label>
+                    <input asp-for="Bio" class="form-control" readonly />
+                        
+                    </div>
+
+                    <div class="form-group m-2">
+                    <a class="btn btn-outline-warning" asp-action="Edit" asp-route-id="@Model.Id">Edit</a>
+                        <a class="btn btn-outline-secondary float-end" asp-action="Index">Show all</a>
+                    </div>
+
+                    
+               
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+@section Scripts{
+    <script>
+
+
+        $(function () {
+            var output = document.getElementById('ProfilePictureUrlPreview');
+
+            output.src = $('#ProfilePictureUrl').val();
+        });
+    </script>
+}
