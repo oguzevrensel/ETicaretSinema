@@ -56,11 +56,11 @@
                         <p class="card-text">
 
                             <b>Actors:</b>
-
+                            
                             <div class="row">
                                 @foreach (var actor in Model.Actors_Movies)
                                 {
-                                    <div style="display:contents;margin-left:10px!important;">
+                                    <div style="display:contents;margin-left:10px!important;">                                       
                                         <a asp-asp-controller="Actors" asp-action="Details" asp.asp-route-id="@actor.ActorId">
                                             <img class="border-info rounded-circle" src="@actor.Actor.ProfilePictureUrl"
                                                  style="max-height:150px !important;min-height:150px!important;max-width:150px !important;min-width:150px!important;margin: 30px;">

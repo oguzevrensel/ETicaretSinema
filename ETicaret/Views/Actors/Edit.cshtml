@@ -1,37 +1,31 @@
 ﻿@model Actor
 @{
-    ViewData["Title"] = "Edit Actor " + Model.FullName;
+    ViewData["Title"] = "Edit " + Model.FullName;
 }
 
 <div class="row text">
     <div class="col-md-8 offset-2">
-
         <p>
             <h1>Edit Actor</h1>
         </p>
-
         <div class="row">
             <div class="col-md-8 offset-2">
                 <form asp-action="Edit">
                     <div asp-validation-summary="ModelOnly" class="text-danger">
                     </div>
-
                     <div class="text-center form-group">
-                        <img id="ProfilePictureUrlPreview" class="rounded-circle" style="width:250px;height:250px; border: 1px solid green;" />
-
+                        <img class="rounded-circle" id="ProfilePictureUrlPreview" style="width:250px; height:250px;" />
                     </div>
                     <div class="form-group">
                         <label asp-for="ProfilePictureUrl" class="control-label"></label>
                         <input asp-for="ProfilePictureUrl" class="form-control" />
                         <span asp-validation-for="ProfilePictureUrl" class="text-danger"></span>
                     </div>
-
                     <div class="form-group">
                         <label asp-for="FullName" class="control-label"></label>
                         <input asp-for="FullName" class="form-control" />
                         <span asp-validation-for="FullName" class="text-danger"></span>
                     </div>
-
                     <div class="form-group">
                         <label asp-for="Bio" class="control-label"></label>
                         <input asp-for="Bio" class="form-control" />
@@ -41,29 +35,25 @@
                     <div class="form-group m-2">
                         <a class="btn btn-outline-secondary float-start" asp-action="Index">Show All</a>
                         <input type="submit" value="Save" class="btn btn-outline-success float-end" />
-
                     </div>
                 </form>
             </div>
         </div>
     </div>
-
-
 </div>
 
 @section Scripts{
     <script>
+
         $(function () {
             var output = document.getElementById('ProfilePictureUrlPreview');
-
-            output.src = $('#ProfilePictureUrl').val();
+            output.src = $("#ProfilePictureUrl").val();
         });
 
 
-        $('#ProfilePictureUrl').on('change', function () {
+        $("#ProfilePictureUrl").on("change", function () {
             var output = document.getElementById('ProfilePictureUrlPreview');
-
             output.src = $(this).val();
         });
     </script>
-                        }
+}

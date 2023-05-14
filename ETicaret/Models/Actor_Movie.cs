@@ -1,4 +1,6 @@
-﻿namespace ETicaret.Models
+﻿using ETicaret.Data.Base;
+
+namespace ETicaret.Models
 {
     public class Actor_Movie
     {

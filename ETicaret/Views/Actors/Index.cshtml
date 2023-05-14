@@ -1,5 +1,4 @@
 ﻿@model IEnumerable<Actor>
-
 @{
     ViewData["Title"] = "Aktör Listesi";
 }
@@ -19,30 +18,28 @@
                     <th>
                         @Html.DisplayNameFor(m => m.Bio)
                     </th>
-                    <th>
-                       İşlemler
-                    </th>
+                    <th></th>
                 </tr>
-
-                
             </thead>
-
             <tbody>
                 @foreach (var item in Model)
                 {
                     <tr>
                         <td class="align-middle">
-                            <img class="rounded-circle" src="@item.ProfilePictureUrl" alt="@item.FullName" style="min-width:150px;max-width:150px; height:150px; background-size:cover;">
+                            <img class="rounded-circle"
+                                 src="@item.ProfilePictureUrl"
+                                 alt=@item.FullName
+                                 style="min-width:150px;max-width:150px;height:150px;background-size: cover;">
                         </td>
                         <td class="align-middle">
-                            @Html.DisplayFor(m => item.FullName)
+                            @Html.DisplayFor(m=> item.FullName)
                         </td>
                         <td class="align-middle">
-                            @Html.DisplayFor(m => item.Bio)
+                            @Html.DisplayFor(m=> item.Bio)
                         </td>
                         <td class="align-middle">
-                            <a class="btn btn-outline-primary" asp-controller="actors" asp-action="edit"> <i class="bi bi-pencil-square"></i>Güncelle</a> |
-                            <a class="btn btn-outline-info" asp-controller="actors" asp-action="detail" asp-route-id="@item.Id"> <i class="bi bi-eye"></i> Detay</a> |
+                            <a class="btn btn-outline-primary" asp-action="edit" asp-route-id="@item.Id"><i class="bi bi-pencil-square"></i> Güncelle</a> |
+                            <a class="btn btn-outline-info" asp-action="details" asp-route-id="@item.Id"><i class="bi bi-eye"></i> Detay</a> |
                             <a class="btn btn-outline-danger" asp-action="delete" asp-route-id="@item.Id"><i class="bi bi-trash"></i> Sil</a>
                         </td>
                     </tr>
@@ -52,10 +49,4 @@
     </div>
 </div>
 
-
-<div style="position:fixed; right:25px;bottom:25px;" class="text-white">
-    <a asp-action="Create" class="btn btn-success" >
-        <i class="bi bi-plus-circle"></i>
-        Add New
-    </a>
-</div>
+@await Html.PartialAsync("_CreateItem","Actors")
